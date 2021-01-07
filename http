@@ -2,3 +2,7 @@
 [+] Subdomains
 ==============================================================================
 wfuzz -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -H "Host: FUZZ.host.com" --hc 200 --hw 356 -t 100 10.10.10.101
+==============================================================================
+[+] Directories
+==============================================================================
+gobuster dir -u http://10.10.10.81/ -w /usr/share/wordlists/dirb/common.txt -t 64 -o gobuster.txt -s 204,301,302,307
