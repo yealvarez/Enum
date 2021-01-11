@@ -1,0 +1,13 @@
+==============================================================================
+[+] nmap scripts
+==============================================================================
+nmap -p445 --script smb-protocols <host>
+nmap -p139 --script smb-protocols <host>
+nmap -sV --script ssl-enum-ciphers -p 443 <host>
+nmap --script smb-os-discovery.nse -p445 <host>
+nmap --script "vuln and safe" -p445  <host>
+nmap -sC -sV -p135,139,445  --script smb-protocols  -Pn 10.10.10.10
+
+
+#
+nmap -T0 -Pn -p80,443,139,22 <host>
