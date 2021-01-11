@@ -5,6 +5,28 @@
 smbclient -L 10.10.10.103 -N 2>/dev/null
 smbclient -N "//10.10.10.103/Department Shares"
 
+# Path traversal SMB
+dir ../../../
+
+smbclient '//10.10.10.40/Users' 
+Enter WORKGROUP\kali's password: 
+Try "help" to get a list of possible commands.
+smb: \> dir ../../../
+  .                                  DR        0  Fri Jul 21 02:56:23 2017
+  ..                                 DR        0  Fri Jul 21 02:56:23 2017
+  Administrator                       D        0  Fri Jul 21 02:56:36 2017
+  All Users                       DHSrn        0  Tue Jul 14 01:08:56 2009
+  Default                           DHR        0  Tue Jul 14 03:07:31 2009
+  Default User                    DHSrn        0  Tue Jul 14 01:08:56 2009
+  desktop.ini                       AHS      174  Tue Jul 14 00:54:24 2009
+  haris                               D        0  Fri Jul 14 09:45:53 2017
+  Public                             DR        0  Tue Apr 12 03:51:29 2011
+
+
+# smbmap Tool
+
+smbmap -H 10.10.10.40 -u 'null'
+
 ==============================================================================
 [+] SMB Enumeration Automatic
 ==============================================================================
