@@ -5,13 +5,6 @@
 wfuzz -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -H "Host: FUZZ.host.com" --hc 200 --hw 356 -t 100 10.10.10.101
 wfuzz -c --hc=404 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/IIS.fuzz.txt http://10.10.10.103/FUZZ
 
-
-
-
-
-
-
-
 ==============================================================================
 [+] Directories
 ==============================================================================
