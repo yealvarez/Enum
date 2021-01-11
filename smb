@@ -1,0 +1,12 @@
+==============================================================================
+[+] SMB Enumeration Manual
+==============================================================================
+# smbclient Tool
+smbclient -L 10.10.10.103 -N 2>/dev/null
+smbclient -N "//10.10.10.103/Department Shares"
+
+==============================================================================
+[+] SMB Enumeration Automatic
+==============================================================================
+# smbclient tool 
+smbclient -L 10.10.10.103 -N 2>/dev/null | grep "Disk" | sed 's/\s*\(.*\)\s*Disk.*/\1/' | while read sharedFolder; do echo "===${sharedFolder}==="; smbclient -N "//10.10.10.103/${sharedFolder}" -c dir; echo; done
