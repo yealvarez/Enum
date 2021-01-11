@@ -32,3 +32,14 @@ smbmap -H 10.10.10.40 -u 'null'
 ==============================================================================
 # smbclient tool 
 smbclient -L 10.10.10.103 -N 2>/dev/null | grep "Disk" | sed 's/\s*\(.*\)\s*Disk.*/\1/' | while read sharedFolder; do echo "===${sharedFolder}==="; smbclient -N "//10.10.10.103/${sharedFolder}" -c dir; echo; done
+
+==============================================================================
+[+] SMB Permissions smbcacls
+==============================================================================
+
+for file in $(ls); do echo $file; done | grep -v -i "^ntuser" | while read line; do echo -e "\n[*] $line:\n"; smbcacls //10.10.10.40/Users Default/$line -N | grep -i "everyone";done
+
+
+
+
+
