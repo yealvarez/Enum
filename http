@@ -4,7 +4,6 @@
 # Versions of Server
 whatweb google.com  
 
-
 ==============================================================================
 [+] Subdomains
 ==============================================================================
@@ -27,6 +26,8 @@ gobuster dir -u http://10.10.10.81/ -w /usr/share/wordlists/dirb/common.txt -t 6
 nmap -p80 --script http.enum 10.10.10.88 -o nmapweb.txt
 nmap -p80 --script http.enum.nse --script-args http-enum.basepath='webservices/' 10.10.10.88 -o nmapweb.txt
 
+# CMS Wordpress
+wfuzz -c --hc=404 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/CMS/wp-plugins.fuzz.txt http://10.10.10.88/webservices/wp/FUZZ
 
 ==============================================================================
 [+] Passwords on Website
