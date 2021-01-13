@@ -18,6 +18,9 @@ wfuzz -c --hc=404 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/IIS.fuz
 # Common Directory 
 gobuster dir -u http://10.10.10.81/ -w /usr/share/wordlists/dirb/common.txt -t 64 -o gobuster.txt -s 204,301,302,307
 
+# nmap
+nmap -p80 --scripts http.enum 10.10.10.88 -o nmapweb.txt
+
 ==============================================================================
 [+] Passwords on Website
 ==============================================================================
