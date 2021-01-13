@@ -11,6 +11,8 @@ whatweb google.com
 # Large Directory 
 wfuzz -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -H "Host: FUZZ.host.com" --hc 200 --hw 356 -t 100 10.10.10.101
 wfuzz -c --hc=404 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/IIS.fuzz.txt http://10.10.10.103/FUZZ
+wfuzz -c --hc=404 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/IIS.fuzz.txt http://10.10.10.103/FUZZ/FUZ2Z/FUZ3Z/
+
 
 ==============================================================================
 [+] Directories
@@ -19,7 +21,9 @@ wfuzz -c --hc=404 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/IIS.fuz
 gobuster dir -u http://10.10.10.81/ -w /usr/share/wordlists/dirb/common.txt -t 64 -o gobuster.txt -s 204,301,302,307
 
 # nmap
-nmap -p80 --scripts http.enum 10.10.10.88 -o nmapweb.txt
+nmap -p80 --script http.enum 10.10.10.88 -o nmapweb.txt
+nmap -p80 --script http.enum.nse --script-args http-enum.basepath='webservices/' 10.10.10.88 -o nmapweb.txt
+
 
 ==============================================================================
 [+] Passwords on Website
