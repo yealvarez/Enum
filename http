@@ -13,7 +13,7 @@ wfuzz -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt 
 ==============================================================================
 [+] Directories
 ==============================================================================
-# Download Files of Page
+# Download Recursive Files in Web Page
 wget -r http://10.10.10/images
 
 # Large Directory wfuzz
