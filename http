@@ -15,6 +15,7 @@ wfuzz -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt 
 ==============================================================================
 # Download Recursive Files in Web Page
 wget -r http://10.10.10/images
+wget -r --no-parent http://10.10.10/images
 
 # Large Directory wfuzz
 wfuzz -c --hc=404 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/IIS.fuzz.txt http://10.10.10.103/FUZZ
