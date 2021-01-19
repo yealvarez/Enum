@@ -1,0 +1,17 @@
+0==============================================================================
+[+] DNS
+==============================================================================
+
+# 
+nslookup 
+
+# Zone Transfer
+dig axfr @10.10.10.10 bank.com
+host -t axfr bank.com 10.10.10.10
+
+# DNS info name Service
+host -t ns bank.com 
+
+# DNS info Mail Service
+host -t mx bank.com
+
