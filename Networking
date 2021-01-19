@@ -1,13 +1,27 @@
 ==============================================================================
 [+] nmap scripts
 ==============================================================================
-nmap -p445 --script smb-protocols <host>
-nmap -p139 --script smb-protocols <host>
+
+# Scanning TLS and SSL
 nmap -sV --script ssl-enum-ciphers -p 443 <host>
+
+# Scanning SMB
+nmap -T0 -Pn -p80,443,139,22 <host>
 nmap --script smb-os-discovery.nse -p445 <host>
 nmap --script "vuln and safe" -p445  <host>
-nmap -sC -sV -p135,139,445  --script smb-protocols  -Pn 10.10.10.10
+nmap -p445 --script smb-protocols <host>
+nmap -p139 --script smb-protocols <host>
+nmap -sC -sV -p135,139,445  --script smb-protocols -Pn <host>
 
+# Scanning UDP
+nmap -sU <host>
 
-#
-nmap -T0 -Pn -p80,443,139,22 <host>
+# Scanning Range 
+nmap 10.10.10.10,11,12
+nmap 10.10.10.1-255
+nmap 10.10.10.1-100
+nmap 10.10.10.0/24 --Exclude 10.10.10.180-190
+
+# Scanning Stealthy
+nmap -sN -sS -sV -sl 10.10.10.10 -T0 -f -v -Pn -D RND 10.10.10.10
+
