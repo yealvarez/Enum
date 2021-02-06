@@ -2,8 +2,11 @@
 [+] DNS
 ==============================================================================
 
-# 
+# dns serach 
 nslookup 
+
+# search by google dns
+dig ejemplo.com @8.8.8.8
 
 # Zone Transfer
 dig axfr @10.10.10.10 bank.com
