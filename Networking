@@ -29,6 +29,10 @@ nmap -sN -sS -sV -sl 10.10.10.10 -T0 -f -v -Pn -D RND 10.10.10.10
 sudo nmap 10.10.110.0/24 -sP
 nmap -T5 -sn -n --disable-arp-ping 10.10.0.0/16 | grep -v "host down"
 
+# Vulnerabilities 
+git clone https://github.com/scipag/vulscan scipag_vulscan
+nmap -sV --script=/home/kali/OSCP/tools/vulscan/vulscan.nse 10.10.10.10 -Pn
+
 ==============================================================================
 [+] Bash: Sweep ping Linux
 ==============================================================================
