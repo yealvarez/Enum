@@ -32,6 +32,7 @@ nmap 10.10.10.0/24 --Exclude 10.10.10.180-190
 nmap -sN -sS -sV -sl 10.10.10.10 -T0 -f -v -Pn -D RND 10.10.10.10
 
 # Sweep ping 
+sudo nmap -sP -R 192.168.0.1-254
 sudo nmap 10.10.110.0/24 -sP
 nmap -T5 -sn -n --disable-arp-ping 10.10.0.0/16 | grep -v "host down"
 
