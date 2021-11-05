@@ -1,0 +1,22 @@
+telnet 192.168.20.1 25                                                                                     1 ⨯
+Trying 192.168.20.1...
+Connected to 192.168.20.1.
+Escape character is '^]'.
+220 PR_BD.domain.com.co Microsoft ESMTP MAIL Service, Version: 10.0.14393.4169 ready at  Fri, 5 Nov 2021 12:33:57 -0500 
+HELO
+250 PR_BD.domain.com.co Hello [192.168.20.2]
+VRFY mauricio@domain.com.co  
+550 5.7.1 Cannot relay to <mauricio@domain.com.co>
+MAIL FROM: hacker@PR.domain.com.co
+250 2.1.0 hacker@PR.domain.com.co....Sender OK
+RCPT TO: mauricio@PR.domain.com.co
+250 2.1.5 mauricio@PR.domain.com.co 
+DATA
+354 Start mail input; end with <CRLF>.<CRLF>
+SUBJECT: Important messagge
+Hello Mauricio, this is a test of malicious emails. Please don't be alarmed.
+.
+250 2.6.0 <PRxxxxxxxxx@PR.domain.com.co> Queued mail for delivery
+QUIT
+221 2.0.0 PR.domain.com.co Service closing transmission channel
+Connection closed by foreign host.
